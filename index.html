@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question 💌</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            background-color: #ffebee;
+            color: #d81b60;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 { font-size: 2.5rem; }
+        p { font-size: 1.2rem; }
+        .buttons { margin-top: 30px; position: relative; }
+        button {
+            padding: 10px 25px;
+            font-size: 1.2rem;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
+        }
+        #yesBtn { background-color: #d81b60; color: white; }
+        #noBtn { background-color: #bdbdbd; color: white; position: absolute; }
+        #yesBtn:hover { transform: scale(1.1); }
+        .hidden { display: none; }
+        #message { margin-top: 20px; font-size: 1.3rem; font-weight: bold; }
+        .location-box {
+            background-color: #fce4ec;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 2px dashed #d81b60;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="proposal">
+        <h1>Dearest Geefty, will you be my Valentine? ❤️</h1>
+        <p>I have a special staycation planned for us...</p>
+        <div class="buttons">
+            <button id="yesBtn">Yes! 💖</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div id="location" class="hidden">
+        <h1>Yay! 😍</h1>
+        <p>Pack your bags for...</p>
+        <div class="location-box">
+            <h3>📍 [No 28b kadiri street ogba off Ajayi road beside Assemblies of God church kadiri then enter right by the church fence u will see the coffee brown and white building]</h3>
+            <p>⏰ [Friday 13th February 2026/2pm]</p>
+        </div>
+        <p>Can't wait to see you!</p>
+    </div>
+</div>
+
+<script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const proposal = document.getElementById('proposal');
+    const locationDiv = document.getElementById('location');
+
+    // Make 'No' button run away
+    noBtn.addEventListener('mouseover', () => {
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.left = ${x}px;
+        noBtn.style.top = ${y}px;
+    });
+
+    // Reveal location on 'Yes'
+    yesBtn.addEventListener('click', () => {
+        proposal.classList.add('hidden');
+        locationDiv.classList.remove('hidden');
+    });
+</script>
+
+</body>
+</html>
